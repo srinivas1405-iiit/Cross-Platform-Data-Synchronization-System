@@ -50,28 +50,6 @@ Synchronizes one database with another by:
 - Resolving conflicts via latest timestamp.
 - Updating target DB and its oplog.
 
----
-
-## 📂 Example
-
-### Sample Test Case (`testcase1.in`)
-```text
-1, HIVE.SET((SID1033,CSE016),A)
-4, SQL.SET((SID1033,CSE016),B)
-HIVE.MERGE(SQL)
-
-# Sample Oplogs After Merge
-
-## Oplogs
-
-**`oplog.hive.txt`**:
-1, SET((SID1033,CSE016),A)
-4, SET((SID1033,CSE016),B) # Added after merge due to higher timestamp
-
-**`oplog.sql.txt`**:
-4, SET((SID1033,CSE016),B)
-
-
 ## 🔁 Merge Properties
 
 - **Associative**: Order of merges doesn’t affect the final result.  
@@ -101,3 +79,23 @@ Screenshots of the final outputs and test cases demonstrate that the merge logic
 
 This project demonstrates the feasibility of a unified synchronization mechanism across heterogeneous databases.  
 Through operation logging and merge-based conflict resolution, consistency is achieved while respecting the native strengths of each database paradigm.
+
+## 📂 Example
+
+### Sample Test Case (`testcase1.in`)
+```text
+1, HIVE.SET((SID1033,CSE016),A)
+4, SQL.SET((SID1033,CSE016),B)
+HIVE.MERGE(SQL)
+
+# Sample Oplogs After Merge
+
+## Oplogs
+
+**`oplog.hive.txt`**:
+1, SET((SID1033,CSE016),A)
+4, SET((SID1033,CSE016),B) # Added after merge due to higher timestamp
+
+**`oplog.sql.txt`**:
+4, SET((SID1033,CSE016),B)
+
