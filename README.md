@@ -1,4 +1,4 @@
-# Data Synchronization Across Heterogeneous Systems
+# Cross-Platform Data Synchronization System
 
 A Python-based system for synchronizing student grade data across **MySQL**, **MongoDB**, and **Apache Hive** while maintaining eventual consistency, conflict resolution, and data auditability.
 
